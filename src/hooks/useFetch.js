@@ -5,6 +5,8 @@ const FetchContext = createContext({});
 
 export const FetchProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([])
+    const [search, setSearch] = useState("")
+    const [select, setSelect] = useState("")
 
     useEffect(() => {
         axios
@@ -12,10 +14,23 @@ export const FetchProvider = ({ children }) => {
             .then((response) => setTransactions(response.data));
     }, [])
 
+    const searchTitle = transactions.filter((value) => {
+        if(search === ""){
+            return value
+        } else if (value.title){
+            return value
+        } else {
+            return alert("digite um título válido")
+        }
+    });
+
     return (
         <FetchContext.Provider
             value={{
                 transactions,
+                searchTitle,
+                search,
+                setSelect
             }}
             >
             {children}
