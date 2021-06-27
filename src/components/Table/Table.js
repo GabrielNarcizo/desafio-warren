@@ -1,11 +1,13 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
+import { Container, TableSection } from './Table.style'
 
 const Table = () => {
     const { transactions } = useFetch()
 
     return (
-        <table>
+        <Container>
+        <TableSection>
             <thead>
                 <th>
                 <tr>Titulo</tr>
@@ -33,7 +35,8 @@ const Table = () => {
                 </tr>
                 )})}
             </tbody>
-        </table>
+        </TableSection>
+        </Container>
     )
 }
 
