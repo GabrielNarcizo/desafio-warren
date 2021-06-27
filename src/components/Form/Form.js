@@ -8,19 +8,20 @@ const Form = () => {
     return (
         <div>
             <input onChange={(e) => {
-                setSearch(e.target.value);
-                }}type="text" name="search" placeholder="Digite o título"/>
+                setSearch(e.target.value)
+                }}
+                type="text" name="search" placeholder="Digite o título"/>
+            
             <select
                 onChange={(e) => {
-                setSelect(e.target.value);
+                setSelect(e.target.value)
                 }}
                 id="status"
-                placeholder="Status"
             >
                 <option value="">Status</option>
-                <option value="created">Solicitada</option>
+                <option value="created">Solicitado</option>
                 <option value="processing">Processando</option>
-                <option value="processed">Concluída</option>
+                <option value="processed">Concluído</option>
             </select>   
         </div>
     )

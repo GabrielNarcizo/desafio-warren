@@ -13,11 +13,21 @@ export const FetchProvider = ({ children }) => {
             .get("https://warren-transactions-api.herokuapp.com/api/transactions")
             .then((response) => setTransactions(response.data));
     }, [])
-
+    
     const searchTitle = transactions.filter((value) => {
         if(search === ""){
             return value
         } else if (value.title.toLowerCase().includes(search.toLowerCase())){
+            return value
+        } else {
+            return null
+        }
+    });
+
+    const selectOption = transactions.filter((value) => {
+        if(value.status.includes(select)){
+            return value
+        } else if (select === ""){
             return value
         } else {
             return null
@@ -31,7 +41,9 @@ export const FetchProvider = ({ children }) => {
                 searchTitle,
                 search,
                 setSelect,
-                setSearch
+                setSearch,
+                selectOption,
+                select
             }}
             >
             {children}

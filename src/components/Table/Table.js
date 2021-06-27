@@ -4,7 +4,8 @@ import Form from '../Form/Form'
 import { Container, TableSection } from './Table.style'
 
 const Table = () => {
-    const { transactions, searchTitle, search } = useFetch()
+    const { searchTitle, search, selectOption } = useFetch()
+
 
     return (
         <>
@@ -27,17 +28,7 @@ const Table = () => {
                 </thead>
 
                 <tbody>
-                    { search === "" ? transactions.map((items, key) => (
-
-                    <tr key={key}>
-                        <td>{items.title}</td>
-                        <td>{items.description}</td>
-                        <td>{items.status}</td>
-                        <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
-                    </tr>
-                    ))
-                    
-                    : search !== "" ? searchTitle.map((items, key) => (
+                     {search !== "" ? searchTitle.map((items, key) => (
 
                         <tr key={key}>
                             <td>{items.title}</td>
@@ -45,7 +36,17 @@ const Table = () => {
                             <td>{items.status}</td>
                             <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
                         </tr>
-                    )):null }
+                    ))
+                    : selectOption.map((items, key) => (
+
+                        <tr key={key}>
+                            <td>{items.title}</td>
+                            <td>{items.description}</td>
+                            <td>{items.status}</td>
+                            <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
+                        </tr> 
+                    ))
+                    }
                 </tbody>
             </TableSection>
         </Container>
