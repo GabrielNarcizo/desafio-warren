@@ -1,22 +1,37 @@
 import React from 'react'
+import useFetch from '../../hooks/useFetch'
 
 const Table = () => {
+    const { transactions } = useFetch()
+
     return (
         <table>
             <thead>
-                <tr>
-                    <th>
-
-                    </th>
-                </tr>
+                <th>
+                <tr>Titulo</tr>
+                </th>
+                <th>
+                <tr>Descrição</tr>
+                </th>
+                <th>
+                <tr>Status</tr>
+                </th>
+                <th>
+                <tr>Valor</tr>
+                </th>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>
-                        
-                    </td>
+                {transactions.map((items, key) => {
+                    return (
+                <tr key={key}>
+                    <td>{items.title}</td>
+                    <td>{items.description}</td>
+                    <td>{items.status}</td>
+                    <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
+                    <td></td>
                 </tr>
+                )})}
             </tbody>
         </table>
     )
