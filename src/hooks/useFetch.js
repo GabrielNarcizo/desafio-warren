@@ -17,10 +17,10 @@ export const FetchProvider = ({ children }) => {
     const searchTitle = transactions.filter((value) => {
         if(search === ""){
             return value
-        } else if (value.title){
+        } else if (value.title.toLowerCase().includes(search.toLowerCase())){
             return value
         } else {
-            return alert("digite um título válido")
+            return null
         }
     });
 
@@ -30,7 +30,8 @@ export const FetchProvider = ({ children }) => {
                 transactions,
                 searchTitle,
                 search,
-                setSelect
+                setSelect,
+                setSearch
             }}
             >
             {children}
