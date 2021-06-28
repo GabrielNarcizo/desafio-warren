@@ -1,16 +1,17 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
+import { ContainerForm } from './Form.style'
 
 const Form = () => {
 
     const {setSearch, setSelect} = useFetch()
 
     return (
-        <div>
+        <ContainerForm>
             <input onChange={(e) => {
                 setSearch(e.target.value)
                 }}
-                type="text" name="search" placeholder="Digite o título"/>
+                type="text" name="search" placeholder="Pesquise pelo título"/>
             
             <select
                 onChange={(e) => {
@@ -23,7 +24,7 @@ const Form = () => {
                 <option value="processing">Processando</option>
                 <option value="processed">Concluída</option>
             </select>   
-        </div>
+        </ContainerForm>
     )
 }
 
