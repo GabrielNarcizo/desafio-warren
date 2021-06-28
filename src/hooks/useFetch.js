@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import axios from 'axios'
 
 const FetchContext = createContext({});
@@ -7,12 +7,19 @@ export const FetchProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([])
     const [search, setSearch] = useState("")
     const [select, setSelect] = useState("")
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [current, setCurrent] = useState({});
 
     useEffect(() => {
         axios
             .get("https://warren-transactions-api.herokuapp.com/api/transactions")
             .then((response) => setTransactions(response.data));
     }, [])
+
+    const setCurrentContext = useCallback((current) => {
+        setCurrent(current);
+      }, []);
+
     
     const searchTitle = transactions.filter((value) => {
         if(search === ""){
@@ -43,7 +50,10 @@ export const FetchProvider = ({ children }) => {
                 setSelect,
                 setSearch,
                 selectOption,
-                select
+                setIsModalVisible,
+                isModalVisible,
+                current,
+                setCurrentContext
             }}
             >
             {children}

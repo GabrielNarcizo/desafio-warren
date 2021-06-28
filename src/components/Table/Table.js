@@ -1,10 +1,11 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
 import Form from '../Form/Form'
+import Modal from '../Modal/Modal'
 import { Container, TableSection } from './Table.style'
 
 const Table = () => {
-    const { searchTitle, search, selectOption } = useFetch()
+    const { transactions, searchTitle, search, selectOption, setIsModalVisible, isModalVisible, setCurrentContext } = useFetch()
 
     const formatLanguage = (txt) =>{
         if(txt === "created"){
@@ -48,7 +49,8 @@ const Table = () => {
                     ))
                     : selectOption.map((items, key) => (
 
-                        <tr key={key}>
+                        <tr onClick={ () => {setIsModalVisible(true);
+                            setCurrentContext(items)}} key={key}>
                             <td>{items.title}</td>
                             <td>{items.description}</td>
                             <td>{formatLanguage(items.status)}</td>
@@ -58,6 +60,11 @@ const Table = () => {
                     }
                 </tbody>
             </TableSection>
+            {isModalVisible ? (
+                <Modal onClose={() => setIsModalVisible(false)}>
+                    
+                </ Modal>
+            ): null}
         </Container>
         </>
     )
