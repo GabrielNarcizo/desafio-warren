@@ -1,4 +1,5 @@
 # Warren investimentos
+![LOGO-WARREN](https://user-images.githubusercontent.com/75431544/123664322-9c192480-d80d-11eb-932e-ccd0a96b70cf.jpeg)
 
 
 #### Aplicação online em: https://desafio-warren.netlify.app/
