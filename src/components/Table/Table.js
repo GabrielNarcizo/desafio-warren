@@ -1,7 +1,5 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
-import Form from '../Form/Form'
-import Header from '../Header/Header'
 import Modal from '../Modal/Modal'
 import { Container, TableSection } from './Table.style'
 
@@ -20,8 +18,6 @@ const Table = () => {
 
     return (
         <>
-        <Header />
-        <Form />
         <Container>
             <TableSection>
                 <thead>

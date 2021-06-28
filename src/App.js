@@ -1,4 +1,4 @@
-import Table from "./components/Table/Table";
+import Home from "./pages/Home";
 import RootProvider from "./hooks";
 import GlobalStyle from "./styles/globalStyle";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <RootProvider>
       <GlobalStyle />
-      <Table />
+      <Home />
     </RootProvider>
   );
 }
