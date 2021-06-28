@@ -19,9 +19,9 @@ const Form = () => {
                 id="status"
             >
                 <option value="">Status</option>
-                <option value="created">Solicitado</option>
+                <option value="created">Solicitada</option>
                 <option value="processing">Processando</option>
-                <option value="processed">Concluído</option>
+                <option value="processed">Concluída</option>
             </select>   
         </div>
     )

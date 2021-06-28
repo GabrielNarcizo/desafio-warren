@@ -6,6 +6,15 @@ import { Container, TableSection } from './Table.style'
 const Table = () => {
     const { searchTitle, search, selectOption } = useFetch()
 
+    const formatLanguage = (txt) =>{
+        if(txt === "created"){
+            return "Solicitada"
+            } else if(txt === "processing"){
+                return "Processando"
+            }else if(txt === "processed"){
+                return "Concluída"
+            }
+    }
 
     return (
         <>
@@ -33,7 +42,7 @@ const Table = () => {
                         <tr key={key}>
                             <td>{items.title}</td>
                             <td>{items.description}</td>
-                            <td>{items.status}</td>
+                            <td>{formatLanguage(items.status)}</td>
                             <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
                         </tr>
                     ))
@@ -42,7 +51,7 @@ const Table = () => {
                         <tr key={key}>
                             <td>{items.title}</td>
                             <td>{items.description}</td>
-                            <td>{items.status}</td>
+                            <td>{formatLanguage(items.status)}</td>
                             <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
                         </tr> 
                     ))
