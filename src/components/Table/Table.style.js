@@ -7,7 +7,7 @@ export const Container = styled.div`
 `
 
 export const TableSection = styled.table`
-    width: 800px;
+    width: 1000px;
     border-collapse: collapse;
     border: none;
     thead{

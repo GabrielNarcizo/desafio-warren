@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerForm = styled.div`
     display: flex;
-    margin-left: 280px;
+    margin-left: 180px;
     margin-bottom: 20px;
     width: 200px;
         input{

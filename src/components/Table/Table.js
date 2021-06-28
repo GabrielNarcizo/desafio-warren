@@ -4,7 +4,7 @@ import Modal from '../Modal/Modal'
 import { Container, TableSection } from './Table.style'
 
 const Table = () => {
-    const { searchTitle, search, selectOption, setIsModalVisible, isModalVisible, setCurrentContext } = useFetch()
+    const { transactions, searchTitle, search, selectOption, setIsModalVisible, isModalVisible, setCurrentContext } = useFetch()
 
     const formatLanguage = (txt) =>{
         if(txt === "created"){
@@ -15,6 +15,8 @@ const Table = () => {
                 return "Concluída"
             }
     }
+
+    const locale = 'pt-br'
 
     return (
         <>
@@ -33,6 +35,9 @@ const Table = () => {
                     <th>
                     <tr>Valor</tr>
                     </th>
+                    <th>
+                    <tr>Data</tr>
+                    </th>
                 </thead>
 
                 <tbody>
@@ -43,6 +48,7 @@ const Table = () => {
                             <td>{items.description}</td>
                             <td>{formatLanguage(items.status)}</td>
                             <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
+                            <td>{new Date(items.date).toLocaleDateString(locale)}</td>
                         </tr>
                     ))
                     : selectOption.map((items, key) => (
@@ -53,6 +59,7 @@ const Table = () => {
                             <td>{items.description}</td>
                             <td>{formatLanguage(items.status)}</td>
                             <td>R$ {(items.amount).toFixed(2).replace(".", ",")}</td>
+                            <td>{new Date(items.date).toLocaleDateString(locale)}</td>
                         </tr> 
                     ))
                     }
