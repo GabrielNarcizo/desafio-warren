@@ -1,11 +1,12 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
 import Form from '../Form/Form'
+import Header from '../Header/Header'
 import Modal from '../Modal/Modal'
 import { Container, TableSection } from './Table.style'
 
 const Table = () => {
-    const { transactions, searchTitle, search, selectOption, setIsModalVisible, isModalVisible, setCurrentContext } = useFetch()
+    const { searchTitle, search, selectOption, setIsModalVisible, isModalVisible, setCurrentContext } = useFetch()
 
     const formatLanguage = (txt) =>{
         if(txt === "created"){
@@ -19,6 +20,7 @@ const Table = () => {
 
     return (
         <>
+        <Header />
         <Form />
         <Container>
             <TableSection>
