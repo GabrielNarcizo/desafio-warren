@@ -16,8 +16,8 @@ export const ModalDiv = styled.div`
 export const ContainerModal = styled.div`
     background-color: #fff;
     color: #000;
-    width: 40%;
-    height: 40%;
+    width: 45%;
+    height: 45%;
 
     button{
         background-color: transparent;
@@ -37,7 +37,7 @@ export const ContainerModal = styled.div`
             position: absolute;
             width: 2.5px;
             height: 14px;
-            background: #000;
+            background: #F6678D;
         }
 
         &:before{
@@ -55,6 +55,7 @@ export const DivTitle = styled.div`
         font-size: 35px;
         font-weight: bold;
         color: #F6678D;
+        margin-bottom: 20px;
     }
 `
 

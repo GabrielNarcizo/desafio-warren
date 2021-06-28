@@ -1,5 +1,6 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch'
+import ProgressBar from '../ProgressBar/ProgressBar'
 import { ContainerModal, DivTitle, DivTransfer, ModalDiv, P } from './Modal.style'
 
 const Modal = ({onClose =() => {}, children}) => {
@@ -20,7 +21,16 @@ const Modal = ({onClose =() => {}, children}) => {
                     <p>{current.title}</p>
                 </DivTitle>
                 <div>
-                    progress bar
+                {
+                    current.status === "created" ? (
+                        <ProgressBar done="5"/>
+                     ) : current.status === "processing" ? (
+                        <ProgressBar done="50" />
+                     ) : current.status === "processed" ? (
+                        <ProgressBar done="100" />
+    
+                     ): null
+                }
                 </div>
                 <DivTransfer>
                     <P>Transferindo de</P>
