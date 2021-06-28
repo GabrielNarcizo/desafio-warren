@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Warren investimentos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#### Aplicação online em: https://desafio-warren.netlify.app/
 
-In the project directory, you can run:
+## Introdução
 
-### `yarn start`
+O desafio será implementar uma tela de lista de transações apresentando os principais dados relacionado a cada uma delas, ao clicar em uma transação será exibido um modal contendo os detalhes desta transação. O desafio deverá conter as seguintes funcionalidades:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias utilizadas
+- Reactjs 
+- Hooks
+- Context api
+- styled-components
+- Axios
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Objetivos
 
-### `yarn test`
+- Lista de transações agrupada por data
+- Filtro por título
+- Filtro por status
+- Modal contendo os detalhes da transação
+  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como rodar o projeto
 
-### `yarn build`
+Tenha em sua máquina:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Git
+- NodeJs ( desenvolvido com node na versão 12+ )
+- Yarn
+- VsCode (ou algum editor de código de sua preferência)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Passos para rodar o projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ️Clone do repositório (ou faça um fork se preferir)
 
-### `yarn eject`
+ $ git clone https://github.com/GabrielNarcizo/desafio-warren
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Instale as dependências
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instale todas as dependências do projeto com o comando `yarn install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Agora execute a aplicação
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Execute o script de start com `yarn start`, caso enfrente algum problema resete o cache `yarn start --reset-cache`
 
-## Learn More
+- O servidor será aberto automaticamente na porta:3000, caso não aconteça acesse http://localhost:3000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Escolha de abordagens
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Inicialmente optei por fazer um consumo de API usando uma função com useCallback e fetch, para na hora de usar os dados colocar a função em um useEffect, porém percebi que estava usando muitas linhas de códigos então mudei e passei a usar o axios já dentro de um useEffect.
 
-### Code Splitting
+- Para a progress bar usei uma abordagem que usei em outro projeto, conforme a etapa de transferência é reconhecida mudasse o width da barra.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Usei uma função para mudar a linguagem da transferência de ingles para português pois facilita o entendimento do usuário que não tem conhecimento de outra língua.
 
-### Analyzing the Bundle Size
+- As pesquisa foram feitas usando filter, ou seja, faz uma filtragem do valor do título e mostra na tela conforme o que for sendo digitado e o mesmo vale para o status.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- O modal é o mesmo caso da barra de progresso, usei um componente que já uso em outros projetos e nele usei uma função que leva os dados das tabelas para ele(setCurrentContext, usando current como parâmetro).
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
